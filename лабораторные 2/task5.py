@@ -14,4 +14,3 @@ for i in range(10):
 
 
 print(f"Подушка безопасности, чтобы протянуть {months} месяцев без долгов:", int(money_capital))
-
