@@ -3,16 +3,14 @@ salary = 5000  # Ежемесячная зарплата
 spend = 6000  # Траты за первый месяц
 increase = 0.05  # Ежемесячный рост цен
 
-month_count = 0
-current_balance = money_capital
+# TODO Посчитайте количество  месяцев, которое можно протянуть без долгов
 
-while current_balance >= 0:
-    month_count += 1
-    current_balance -= spend  # Платежи за месяц
-    if current_balance >= 0:
-        current_balance += salary  # Добавляем зарплату
-    else:
+for i in range(20):
+    money_capital -= spend - salary
+    spend *= (1 + increase)
+    if money_capital <= 0:
+        res = i
         break
-    spend *= (1 + increase)  # Повышаем расходы согласно росту цен
-
-print("Количество месяцев, которое можно протянуть без долгов:", month_count)
+    else:
+        continue
+print("Количество месяцев, которое можно протянуть без долгов:", res)
